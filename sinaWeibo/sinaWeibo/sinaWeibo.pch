@@ -1,0 +1,64 @@
+//
+//  sinaWeibo.pch
+//  sinaWeibo
+//
+//  Created by XSUNT45 on 16/3/29.
+//  Copyright © 2016年 XSUNT45. All rights reserved.
+//
+
+#ifndef sinaWeibo_pch
+#define sinaWeibo_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"\n %s:%d   %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(...)
+#endif
+
+
+//随机色
+#define WSRandomColor WSColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
+//[UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+//RGB
+#define WSColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define WSNotificationCenter [NSNotificationCenter defaultCenter]
+
+#define WSRetweetButtonDidClickNotification @"WSRetweetButtonDidClickNotification"
+
+#define WSRetweetButtonDidClickNotification @"WSRetweetButtonDidClickNotification"
+
+#define WSBrowserToolBarViewSaveImageButtonDidClickNotification @"SaveImageButtonDidClickNotification"
+
+#define WSBrowserToolBarViewRetweetButtonDidClickNotification @"RetweetButtonDidClickNotification"
+
+#define WSBrowserToolBarViewAttitudeButtonDidClickNotification @"AttitudeButtonDidClickNotification"
+
+
+// 昵称字体
+#define WSStatusCellNameFont [UIFont systemFontOfSize:15]
+// 时间字体
+#define WSStatusCellTimeFont [UIFont systemFontOfSize:12]
+// 来源字体
+#define WSStatusCellSourceFont WSStatusCellTimeFont
+// 正文字体
+#define WSStatusCellContentFont [UIFont systemFontOfSize:14]
+// 被转发微博的正文字体
+#define WSStatusCellRetweetContentFont [UIFont systemFontOfSize:13]
+// cell之间的间距
+#define WSStatusCellMargin 15
+// cell的边框宽度
+#define WSStatusCellBorderW 10
+
+
+
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+#import "MBProgressHUD.h"
+#import "NSString+Extension.h"
+
+#endif /* sinaWeibo_pch */
